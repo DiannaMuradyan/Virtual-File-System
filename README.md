@@ -18,5 +18,5 @@ You can add, remove, display, and find files or directories, as well as print th
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/vfs_demo.git
+git clone https://github.com/DiannaMuradyan/vfs_demo.git
 cd vfs_demo
