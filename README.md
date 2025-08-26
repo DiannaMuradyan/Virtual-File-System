@@ -1,22 +1,47 @@
-# Virtual-File-System
+# 📂 Virtual File System (VFS) in C++
 
-A small C++17 demo of a simple virtual file system (VFS) with files and directories, built using smart pointers.  
-You can add, remove, display, and find files or directories, as well as print the full tree structure.
+This project implements a **Virtual File System (VFS)** in C++ that simulates a hierarchical structure of **directories** and **files**.  
 
----
-
-## Features
-- **Files** with content and size tracking
-- **Directories** containing files and other directories
-- **Find by path** (`dir/file.txt`)
-- **Tree view** of the whole structure
-- Uses modern C++17 features (`std::shared_ptr`, `std::weak_ptr`)
+The design is based on **OOP principles** with **inheritance**, **polymorphism**, and **smart pointers (`shared_ptr`, `weak_ptr`)** to manage ownership and relationships between files and directories.
 
 ---
 
-## Build & Run
+## 🚀 Features
 
-### 1. Clone the repository
+- **FileSystemNode (Abstract Base Class)**
+  - Represents a generic file system node.  
+  - Provides interfaces for `getSize()`, `display()`, and `name()`.  
+  - Maintains a reference to its parent (`weak_ptr<Directory>`).  
+
+- **File**
+  - Stores file content (`std::string`).  
+  - Overrides `getSize()` to return file content size.  
+  - Can be displayed with indentation.  
+
+- **Directory**
+  - Can contain both **Files** and other **Directories** (composite pattern).  
+  - Implements `addChild()`, `removeChildByName()`, and `findByPath()`.  
+  - Supports recursive **tree-like display** of contents.  
+  - Calculates total size by summing up children sizes.  
+
+---
+
+## 📂 Project Structure
+```
+.
+├── vfs.h # Class declarations for File, Directory, FileSystemNode
+├── vfs.hpp # (Expected) method definitions/implementations
+├── main.cpp # Example usage and test driver
+└── README.md # Documentation
+```
+
+
+---
+
+## 🏗️ Compilation
+
+Compile with a C++17 (or later) compiler:
+
 ```bash
-git clone https://github.com/DiannaMuradyan/vfs_demo.git
-cd vfs_demo
+g++ -std=c++17 -o vfs main.cpp
+```
